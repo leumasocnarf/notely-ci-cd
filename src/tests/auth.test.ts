@@ -12,7 +12,7 @@ describe("getAPIKey", () => {
 
   it("should return null when authorization header is missing", () => {
     const headers: IncomingHttpHeaders = {};
-    expect(getAPIKey(headers)).toBe("missing"); // intentional break
+    expect(getAPIKey(headers)).toBeNull();
   });
 
   it("should return null when authorization header is undefined", () => {
