@@ -25,7 +25,7 @@ jobs:
         run: npm run test -- --coverage
 
   style:
-    name: Formatting
+    name: Style 
     runs-on: ubuntu-latest
 
     steps:
