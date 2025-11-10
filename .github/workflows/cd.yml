@@ -10,6 +10,7 @@ env:
   REPOSITORY: ${{ secrets.GCP_REPOSITORY }}
   IMAGE: ${{ secrets.GCP_IMAGE }}
   TAG: ${{ secrets.IMAGE_TAG }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   deploy:
@@ -31,6 +32,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Run migrations
+        run: npm run db:migrate
 
       - id: "auth"
         uses: "google-github-actions/auth@v2"
